@@ -1,20 +1,21 @@
-import { createBrowserRouter, Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
+import Header from "./components/Header";
 import Home from "./pages/Home";
+import Votacao from "./pages/Votacao";
+import Resultado from "./pages/Resultado";
+import "./App.css";
 
-createBrowserRouter([
-    {
-        path: "/",
-        Component: Home
-    }
-])
-function App(){
-    return(
-        <main>
+function App() {
+    return (
+        <>
+            <Header />
             <Routes>
-                <Route path="/" element={<Home />}/>
+                <Route path="/" element={<Home />} />
+                <Route path="/votacao" element={<Votacao />} />
+                <Route path="/resultado" element={<Resultado />} />
+                <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
-        </main>
-        
+        </>
     );
 }
 

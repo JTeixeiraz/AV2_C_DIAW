@@ -1,35 +1,39 @@
-import jogadores from "../data/jogadores";
-import { listarJogadores } from "../services/votacaoService";
-
-    
 const SELOS = {
     indicado: 'Indicado',
-    suspenso: 'Suspenso'
-}
+    suspenso: 'Suspenso',
+};
 
-function JogadorCard({jogador, selecionado = false, onSelecionar}) {
-    const {nome, numero, posicao, foto, situacao} = jogador
-    const selo = SELOS[situacao]
+function JogadorCard({ jogador, selecionado = false, onSelecionar }) {
+    const { nome, numero, posicao, foto, situacao } = jogador;
+    const selo = SELOS[situacao];
+    const classes = ['card', `card-${situacao}`, selecionado && 'card-selecionado']
+        .filter(Boolean)
+        .join(' ');
 
- 
-    
-    {onSelecionar && (
-        <button type="button" onClick={() => onSelecionar(jogador)}>
-            {selecionado ? '✓ Selecionado':'selecionar'}        
-        </button>
-    )}
-
-    return(
-        <ul>
-            <li>
+    return (
+        <article className={classes}>
+            <div className="card-foto">
                 <img src={foto} alt={nome} />
-                <span className="home-numero">{numero}</span>
-                <span>{nome}</span>
-                <span>{posicao}</span>
-                <span>{situacao}</span>
-                {selo && <span className={`home-selo home-selo-${situacao}`}>{selo}</span>}  
-            </li> 
-        </ul>
+                {selo && <span className={`home-selo home-selo-${situacao}`}>{selo}</span>}
+            </div>
+            <div className="card-info">
+                <h3 className="card-nome">
+                    <span className="home-numero">{numero}</span>
+                    <span>{nome}</span>
+                </h3>
+                <p className="card-posicao">{posicao}</p>
+            </div>
+            {onSelecionar && (
+                <button
+                    type="button"
+                    className="botao card-botao"
+                    aria-pressed={selecionado}
+                    onClick={() => onSelecionar(jogador)}
+                >
+                    {selecionado ? '✓ Selecionado' : 'Selecionar'}
+                </button>
+            )}
+        </article>
     );
 }
 

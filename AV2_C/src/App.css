@@ -1,0 +1,405 @@
+.botao:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  filter: none;
+  transform: none;
+}
+
+.home-selo {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-family: var(--fonte-titulo);
+  font-weight: 800;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+
+.home-selo-indicado {
+  background: var(--ouro);
+  color: var(--preto);
+}
+
+.home-selo-suspenso {
+  background: var(--amarelo);
+  color: var(--preto);
+}
+
+.votacao,
+.resultado {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: clamp(1.5rem, 4vw, 2.5rem) 1.25rem 3rem;
+}
+
+.cabecalho-pagina h1 {
+  color: var(--ouro);
+  font-size: clamp(2rem, 5vw, 3rem);
+}
+
+.cabecalho-pagina p {
+  margin: 0.4rem 0 0;
+  font-size: 1.1rem;
+}
+
+.votacao section {
+  margin-top: 2rem;
+}
+
+.votacao section > h2 {
+  color: var(--ouro);
+  font-size: 1.6rem;
+}
+
+.votacao section > p {
+  margin: 0.3rem 0 1rem;
+}
+
+.indicados-grade {
+  margin-top: 1.8rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.suspenso-grade {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 200px));
+  gap: 1rem;
+}
+
+.elenco-grade {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.75rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background: var(--grafite);
+  border: 3px solid var(--ouro);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.card-foto {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  background: var(--branco);
+}
+
+.card-foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 0;
+}
+
+.card-foto .home-selo {
+  position: absolute;
+  top: 0.6rem;
+  left: 0.6rem;
+}
+
+.card-info {
+  padding: 0.6rem 0.7rem 0;
+  text-align: center;
+}
+
+.card-nome {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  font-size: 1.25rem;
+}
+
+.card-posicao {
+  margin: 0.2rem 0 0;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--cinza);
+}
+
+.card-botao {
+  margin: auto 0.7rem 0.7rem;
+  padding: 0.6rem;
+  font-size: 0.95rem;
+  background: transparent;
+  color: var(--branco);
+  box-shadow: inset 0 0 0 2px var(--branco);
+}
+
+.card-suspenso {
+  border-color: var(--amarelo);
+}
+
+.card-elenco {
+  border-color: var(--grafite-claro);
+}
+
+.card-elenco .card-foto {
+  background: #cfcfcf;
+}
+
+.card-elenco .card-foto img {
+  filter: grayscale(1) brightness(0.85);
+}
+
+.card-elenco .card-nome {
+  font-size: 1rem;
+}
+
+.card-elenco .card-info {
+  padding-bottom: 0.7rem;
+}
+
+.card-selecionado {
+  border-color: var(--gramado);
+  box-shadow: 0 0 0 4px rgba(47, 158, 68, 0.5);
+  transform: translateY(-6px);
+}
+
+.card-selecionado .card-botao {
+  background: var(--gramado);
+  color: var(--branco);
+  box-shadow: none;
+}
+
+.barra-confirmacao {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 1rem 1.25rem;
+  background: var(--preto);
+  border: 3px solid var(--ouro);
+  border-radius: 12px;
+}
+
+.barra-confirmacao p {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.barra-confirmacao strong {
+  color: var(--ouro);
+}
+
+.historico {
+  background: var(--gramado);
+  color: var(--branco);
+  padding: 1rem 1.25rem;
+  border-radius: 12px;
+}
+
+.historico h2 {
+  color: var(--branco);
+  font-size: 1.4rem;
+}
+
+.historico ol {
+  margin: 0.6rem 0;
+  padding-left: 0;
+  list-style-position: inside;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 0.3rem 1rem;
+}
+
+.historico > p {
+  margin: 0.5rem 0;
+}
+
+.historico a {
+  font-weight: 800;
+}
+
+.resultado-total {
+  font-size: 1.1rem;
+}
+
+.resultado-total strong {
+  margin-right: 0.3rem;
+  font-family: var(--fonte-titulo);
+  font-size: 2rem;
+  color: var(--ouro);
+}
+
+.resultado-lideranca {
+  margin: 1.5rem 0;
+  padding: 0.9rem 1.2rem;
+  background: var(--grafite);
+  border-left: 6px solid var(--ouro);
+  font-size: 1.1rem;
+}
+
+.resultado-lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.9rem;
+}
+
+.resultado-lista li {
+  display: grid;
+  grid-template-columns: 60px 90px 1fr;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.9rem 1.2rem;
+  background: var(--grafite);
+  border: 3px solid var(--grafite-claro);
+  border-radius: 12px;
+}
+
+.resultado-lista .resultado-item-craque {
+  border-color: var(--ouro);
+}
+
+.resultado-lista .resultado-item-vice {
+  border-color: var(--prata);
+}
+
+.resultado-posicao {
+  font-family: var(--fonte-titulo);
+  font-weight: 800;
+  font-size: 2.2rem;
+  text-align: center;
+}
+
+.resultado-foto {
+  width: 90px;
+  height: 120px;
+  object-fit: cover;
+  object-position: 50% 0;
+  border-radius: 8px;
+  background: var(--branco);
+}
+
+.resultado-dados {
+  min-width: 0;
+}
+
+.resultado-nome {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  font-size: 1.5rem;
+}
+
+.selo-craque,
+.selo-vice {
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-family: var(--fonte-texto);
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: none;
+}
+
+.selo-craque {
+  background: var(--ouro);
+  color: var(--preto);
+}
+
+.selo-vice {
+  background: var(--prata);
+  color: var(--preto);
+}
+
+.resultado-barra {
+  height: 16px;
+  margin: 0.5rem 0 0.4rem;
+  background: var(--grafite-claro);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.resultado-barra span {
+  display: block;
+  height: 100%;
+  background: var(--cinza);
+  border-radius: inherit;
+  transition: width 0.4s ease;
+}
+
+.resultado-item-craque .resultado-barra span {
+  background: var(--ouro);
+}
+
+.resultado-item-vice .resultado-barra span {
+  background: var(--prata);
+}
+
+.resultado-numeros {
+  margin: 0;
+  font-weight: 800;
+}
+
+.resultado-acoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 2rem;
+}
+
+.resultado .botao-secundario {
+  color: var(--branco);
+  box-shadow: inset 0 0 0 2px var(--branco);
+}
+
+.resultado-vazio {
+  margin-top: 2rem;
+  padding: 2rem;
+  background: var(--grafite);
+  border-radius: 12px;
+  text-align: center;
+}
+
+.resultado-vazio p {
+  margin: 0 0 1.2rem;
+  font-size: 1.2rem;
+}
+
+@media (max-width: 900px) {
+  .indicados-grade {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .elenco-grade {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .indicados-grade {
+    grid-template-columns: 1fr;
+  }
+
+  .elenco-grade {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+  }
+
+  .resultado-lista li {
+    grid-template-columns: 40px 64px 1fr;
+    gap: 0.7rem;
+    padding: 0.7rem;
+  }
+
+  .resultado-foto {
+    width: 64px;
+    height: 88px;
+  }
+
+  .resultado-posicao {
+    font-size: 1.6rem;
+  }
+}
